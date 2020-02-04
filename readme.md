@@ -5,3 +5,5 @@ make sure to add a `.env` file that exports a TOKEN variable. The token gets add
 ```js
 const injectedHeader = { Authorization: `Bearer ${TOKEN}` }
 ```
+
+You can also specify the PORT to listen on via the PORT .env var
