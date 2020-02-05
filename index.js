@@ -9,6 +9,7 @@ const options = {
   target: process.env.TARGET,
   logLevel: 'debug',
   ignorePath: true,
+  changeOrigin: true,
   onProxyReq: proxyReq => {
     proxyReq.setHeader('Authorization', `Bearer ${process.env.TOKEN}`)
   },
