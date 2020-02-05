@@ -8,12 +8,14 @@ const PORT = process.env.PORT || 3001
 const options = {
   target: process.env.TARGET,
   logLevel: 'debug',
-  ignorePath: true,
   changeOrigin: true,
   // do not verify SSL cert, since our cert is self signed
   secure: false,
-  onProxyReq: proxyReq => {
-    proxyReq.setHeader('Authorization', `Bearer ${process.env.TOKEN}`)
+  onProxyReq: (proxyReq, req) => {
+    // only attach headers to requests to the node
+    if (req.path.toLowerCase().includes('rpc/v0')) {
+      proxyReq.setHeader('Authorization', `Bearer ${process.env.TOKEN}`)
+    }
   },
   onProxyRes: proxyRes => {
     delete proxyRes.headers.Authorization
