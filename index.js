@@ -10,6 +10,8 @@ const options = {
   logLevel: 'debug',
   ignorePath: true,
   changeOrigin: true,
+  // do not verify SSL cert, since our cert is self signed
+  secure: false,
   onProxyReq: proxyReq => {
     proxyReq.setHeader('Authorization', `Bearer ${process.env.TOKEN}`)
   },
