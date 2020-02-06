@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 9090
-CMD [ "node", "src/index.js" ]
+CMD [ "node", "index.js"]
