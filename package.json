@@ -2,10 +2,10 @@
   "name": "proxy-http-server",
   "version": "1.0.0",
   "description": "a proxy server for attaching headers, and avoiding cors",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js",
+    "start": "node server/index.js",
+    "start:dev": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

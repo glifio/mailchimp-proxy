@@ -15,5 +15,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 9090
+RUN sudo add-apt-repository ppa:certbot/certbot
+RUN sudo apt-get update
+RUN sudo apt-get install certbot
+
 CMD [ "node", "index.js"]
