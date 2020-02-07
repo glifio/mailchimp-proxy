@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const fs = require('fs')
 const http = require('http')
 const https = require('https')
@@ -53,6 +54,7 @@ const proxy = makeProxy(options)
 
 const app = express(proxy)
 app.use(cors())
+app.use('/.well-known', express.static(path.join(__dirname, '.well-known')))
 app.use('/', proxy)
 
 const httpServer = http.createServer(app)
