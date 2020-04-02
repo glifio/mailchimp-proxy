@@ -42,7 +42,7 @@ const options = {
   onProxyReq: (proxyReq, req) => {
     const email = proxyReq.path.substring(1, proxyReq.path.length)
     proxyReq.setHeader('Access-Control-Allow-Origin', '*')
-    proxyReq.path = `/subscribe/post-json?u=${process.env.u}&id=${process.env.u}&EMAIL=${email}&c=?`
+    proxyReq.path = `/subscribe/post-json?u=${process.env.u}&id=${process.env.id}&EMAIL=${email}&c=?`
   }
 }
 
