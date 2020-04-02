@@ -40,13 +40,9 @@ const options = {
   // do not verify SSL cert, since our cert is self signed
   secure: false,
   onProxyReq: (proxyReq, req) => {
-    // only attach headers to requests to the node
-    if (req.path.toLowerCase().includes('rpc/v0')) {
-      proxyReq.setHeader('Authorization', `Bearer ${process.env.TOKEN}`)
-    }
-  },
-  onProxyRes: proxyRes => {
-    delete proxyRes.headers.Authorization
+    const email = proxyReq.path.substring(1, proxyReq.path.length)
+    proxyReq.setHeader('Access-Control-Allow-Origin', '*')
+    proxyReq.path = `/subscribe/post-json?u=${process.env.u}&id=${process.env.u}&EMAIL=${email}&c=?`
   }
 }
 
